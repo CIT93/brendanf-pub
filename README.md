@@ -1,2 +1,2 @@
 # brendanf-pub
-Brendan Fahey CIT 93 public repo
+Brendan Fahey public repo for CIT 93
