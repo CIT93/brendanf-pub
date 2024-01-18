@@ -9,4 +9,4 @@ const myScore7 = 8;
 const myScore8 = 6;
 const total = myScore1 + myScore2 + myScore3 + myScore4 + myScore5 + myScore6 + myScore7 + myScore8;
 console.log(total);
-myScore.textContent = total
+myScore.textContent = total;
