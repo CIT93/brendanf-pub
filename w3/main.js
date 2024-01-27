@@ -1,57 +1,71 @@
-// function determineHouseHoldPts(numberInHousehold) {
-//         console.log("Inside the function");
-//         if (numberInHousehold === 1) {
-//         carbonFootprintPoints = carbonFootprintPoints + 14;
-//     } else if(numberInHousehold === 2) {
-//         carbonFootprintPoints = carbonFootprintPoints + 12;
-//     } else if(numberInHousehold === 3) {
-//         carbonFootprintPoints = carbonFootprintPoints + 10;
-//     } else if(numberInHousehold === 4) {
-//         carbonFootprintPoints = carbonFootprintPoints + 8;
-//     } else if(numberInHousehold === 5) {
-//         carbonFootprintPoints = carbonFootprintPoints + 6;
-//     } else if(numberInHousehold === 6) {
-//         carbonFootprintPoints = carbonFootprintPoints + 4;
-//     } else if(numberInHousehold > 6) {
-//         carbonFootprintPoints = carbonFootprintPoints + 2;
-//     }
-//     console.log(`Based on the number of member of the household of ${numberInHousehold} the points would be ${carbonFootprintPoints}.`);
-// }
+function determineHouseSizePts(size) {
+  if (size === "large") {
+    carbonFootprintPoints = carbonFootprintPoints + 10;
+  } else if (size === "medium") {
+    carbonFootprintPoints = carbonFootprintPoints + 7;
+  } else if (size === "small") {
+    carbonFootprintPoints = carbonFootprintPoints + 4;
+  } else if (size === "apt") {
+    carbonFootprintPoints = carbonFootprintPoints + 2;
+  }
+  console.log(
+    `Based on the size of your ${size} the points would be ${carbonFootprintPoints}.`
+  );
+}
 
-// let carbonFootprintPoints = 0;
-// // const numberInHousehold = 3;
+function determineHouseHoldPts(numberInHousehold) {
+  console.log("Inside the function");
+  if (numberInHousehold === 1) {
+    carbonFootprintPoints = carbonFootprintPoints + 14;
+  } else if (numberInHousehold === 2) {
+    carbonFootprintPoints = carbonFootprintPoints + 12;
+  } else if (numberInHousehold === 3) {
+    carbonFootprintPoints = carbonFootprintPoints + 10;
+  } else if (numberInHousehold === 4) {
+    carbonFootprintPoints = carbonFootprintPoints + 8;
+  } else if (numberInHousehold === 5) {
+    carbonFootprintPoints = carbonFootprintPoints + 6;
+  } else if (numberInHousehold === 6) {
+    carbonFootprintPoints = carbonFootprintPoints + 4;
+  } else if (numberInHousehold > 6) {
+    carbonFootprintPoints = carbonFootprintPoints + 2;
+  }
+  console.log(
+    `Based on the number of members of the household of ${numberInHousehold} the points would be ${carbonFootprintPoints}.`
+  );
+}
 
+let carbonFootprintPoints = 0;
 
 // global scope
 
-// determineHouseHoldPts(3)
-// determineHouseHoldPts(4)
-
+determineHouseHoldPts(5);
+determineHouseSizePts("small");
 
 // function determineHouseSizePts(sizeOfHome) {
-//     console.log("Inside the function");
-//     if (sizeOfHome === 'large house') {
+//   console.log("Inside the function");
+//   if (sizeOfHome === "large house") {
 //     carbonFootprintPoints = carbonFootprintPoints + 10;
-// } else if(sizeOfHome === 'medium-sized house') {
+//   } else if (sizeOfHome === "medium-sized house") {
 //     carbonFootprintPoints = carbonFootprintPoints + 7;
-// } else if(sizeOfHome === 'small house') {
+//   } else if (sizeOfHome === "small house") {
 //     carbonFootprintPoints = carbonFootprintPoints + 4;
-// } else if(sizeOfHome === 'apartment') {
+//   } else if (sizeOfHome === "apartment") {
 //     carbonFootprintPoints = carbonFootprintPoints + 2;
-// }
-// console.log(`Based on the size of your ${sizeOfHome} the points would be ${carbonFootprintPoints}.`);
+//   }
+//   console.log(
+//     `Based on the size of your ${sizeOfHome} the points would be ${carbonFootprintPoints}.`
+//   );
 // }
 
 // let carbonFootprintPoints = 0;
 
-// // determineHouseSizePts('large house')
-// // determineHouseSizePts('medium-sized house')
-// determineHouseSizePts('small house')
-// // determineHouseSizePts('apartment')
+// determineHouseSizePts('large house')
+// determineHouseSizePts('medium-sized house')
+// determineHouseSizePts("small house");
+// determineHouseSizePts('apartment')
 
-
-
-let carbonFootprintPoints = 0;
+/* let carbonFootprintPoints = 0;
 // const numberInHousehold = 5
 
 function determineHouseholdPts(numberInHousehold) {
@@ -105,4 +119,4 @@ function determineHouseSizePts(sizeOfHome) {
 // determineHouseSizePts('large house')
 // determineHouseSizePts('medium-sized house')
 determineHouseSizePts('small house')
-// determineHouseSizePts('apartment')
+// determineHouseSizePts('apartment') */
