@@ -48,7 +48,8 @@ function displayOutput() {
     const newH1 = document.createElement("h1");
     newH1.textContent = `Carbon Footprint total score is ${arr[4]}`;
     const newP = document.createElement("p");
-    newP.textContent = `This Carbon Footprint total score number is based the ${arr[0]} total number of people in the household (with the Carbon Footprint household score of ${arr[2]}) living in a(n) ${arr[1]} sized home (with the Carbon Footprint home size score of ${arr[3]}). The Carbon Footprint household and home size scores total to ${arr[4]}.`;
+    newP.textContent = `This Carbon Footprint total score is based the ${arr[0]} people in the household (score of ${arr[2]}) living in a(n) ${arr[1]} sized home (score of ${arr[3]}).`;
+    newP.textContent += ` The Carbon Footprint household and home size scores total to ${arr[4]}.`;
     output.appendChild(newH1);
     output.appendChild(newP);
   }
