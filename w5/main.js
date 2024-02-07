@@ -10,9 +10,9 @@ function determineHouseSizePts(size) {
     houseSizePoints = 4;
   } else if (size === "apartment") {
     houseSizePoints = 2;
-  }
+  };
   return houseSizePoints;
-}
+};
 
 function determineHouseHoldPts(numberInHousehold) {
   let houseHoldPoints = 0;
@@ -30,9 +30,9 @@ function determineHouseHoldPts(numberInHousehold) {
     houseHoldPoints = 4;
   } else if (numberInHousehold > 6) {
     houseHoldPoints = 2;
-  }
+  };
   return houseHoldPoints;
-}
+};
 
 function displayOutObj(obj) {
   console.log(obj);
@@ -66,13 +66,13 @@ function displayOutput() {
     const output = document.getElementById("output");
     const newH1 = document.createElement("h1");
     newH1.textContent = `Carbon Footprint total score is ${obj.cfpTotal}`;
-//     const newP = document.createElement("p");
-//     newP.textContent = `This Carbon Footprint total score is based the ${arr[0]} people in the household (score of ${arr[2]}) living in a(n) ${arr[1]} sized home (score of ${arr[3]}).`;
-//     newP.textContent += ` The Carbon Footprint household and home size scores total to ${arr[4]}.`;
+    const newP = document.createElement("p");
+    newP.textContent = `This Carbon Footprint total score is based the ${obj.houseM} people in the household (score of ${obj.houseMPTS}) living in a(n) ${obj.houseS} sized home (score of ${obj.houseSPTS}).`;
+    newP.textContent += ` The Carbon Footprint household and home size scores total to ${obj.cfpTotal}.`;
     output.appendChild(newH1);
-//     output.appendChild(newP);
-  }
-}
+    output.appendChild(newP);
+  };
+};
 
 start(7, "apartment");
 start(6, "apartment");
