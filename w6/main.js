@@ -39,20 +39,25 @@ function determineHouseHoldPts(numberInHousehold) {
 function displayOutput(obj) {
   for (obj of cfpData) {
     const newH1 = document.createElement("h1");
-    newH1.textContent = `Carbon Footprint total score is ${obj.cfpTotal}`;
+    newH1.textContent = `Hello ${obj.firstN} ${obj.lastN},`;
+    const newH2 = document.createElement("h2");
+    newH2.textContent = `Your Carbon Footprint total score is ${obj.cfpTotal}`;
     const newP = document.createElement("p");
-    newP.textContent = `This Carbon Footprint total score is based the ${obj.houseM} people in the household (score of ${obj.houseMPTS}) living in a(n) ${obj.houseS} sized home (score of ${obj.houseSPTS}).`;
+    newP.textContent = `This Carbon Footprint total score is based on the ${obj.houseM} people in your household (score of ${obj.houseMPTS}) living in a(n) ${obj.houseS} sized home (score of ${obj.houseSPTS}).`;
     newP.textContent += ` The Carbon Footprint household and home size scores total to ${obj.cfpTotal}.`;
     OUTPUT.appendChild(newH1);
+    OUTPUT.appendChild(newH2);
     OUTPUT.appendChild(newP);
   };
 };
 
-function start(houseHoldMembers, houseSize) {
+function start(firstName, lastName, houseHoldMembers, houseSize) {
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePTS = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePTS;
   cfpData.push({
+    firstN: firstName,
+    lastN: lastName,
     houseM: houseHoldMembers,
     houseS: houseSize,
     houseMPTS: houseHoldPTS,
@@ -67,12 +72,8 @@ FORM.addEventListener('submit', function(e){
   const lastName = FORM.lastname.value;
   const houseHoldMembers = parseInt(FORM.household.value);
   const houseSize = FORM.housesize.value;
-  start(houseHoldMembers, houseSize);
+  start(firstName, lastName, houseHoldMembers, houseSize);
   OUTPUT.innerHTML = "";
   displayOutput();
   FORM.reset();
 });
-
-// No. The values must match between the html and JS code. Either "apt" or "apartment" must be consistant in the code. I recommend "apartment" since it is easy understand what the value represents in the code.
-
-// We are doing all of this work in the form because we need to assume that users will not give us good data. 
