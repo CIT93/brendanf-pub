@@ -56,9 +56,9 @@ function renderTblHeading(data){
     
   
 function renderTbl(data){
-  const table = renderTblHeading(populateTable(headingObjects));
+  const table = renderTblHeading();
   const tbody = document.createElement("tbody");
-  headingObjects.forEach(function(item) {
+  Objects.forEach(function(item) {
     const tr = document.createElement("tr");
     const td = document.createElement("td");
     const name = document.createElement("td");
