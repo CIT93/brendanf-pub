@@ -1,4 +1,4 @@
-import { renderTbl } from "./render.js";
+import { renderTbl } from "./rendersolution.js";
 import { determineHouseHoldPts, determineHouseSizePts } from "./carbonfootprint.js";
 
 const FORM = document.getElementById("form");
