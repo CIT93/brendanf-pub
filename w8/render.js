@@ -1,4 +1,5 @@
 const TBL = document.getElementById("tab-data");
+const FORM = document.getElementById("form");
 
 function renderTblHeading(data){
   TBL.innerHTML = "";
@@ -25,13 +26,25 @@ function renderTblBtn(index, data){
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
   btnDel.addEventListener('click', function(e){
-    console.log('Hello from inside the delete button');
+    // console.log('Hello from inside the delete button');
     console.log(e);
     data.splice(index, 1);
     renderTbl(data);
+    if(index === 0){
+      TBL.innerHTML = "";
+    } 
   });
   btnEdit.addEventListener('click', function(e){
     console.log(e);
+    data.forEach(function (obj, index) {
+      data.splice(index, 0);
+      for(const [key, value] of Object.entries(obj)) {
+        if(key === "firstN" && key === "houseM" && key !== "houseS"){
+        data.push(value);
+        FORM[index]
+        };
+      };
+    });
   });
   return td;
 };
