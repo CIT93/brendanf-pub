@@ -2,7 +2,7 @@ const TBL = document.getElementById("tab-data");
 const FORM = document.getElementById("form");
 
 function renderTblHeading(data){
-  TBL.innerHTML = "";
+  // TBL.innerHTML = "";
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
@@ -17,7 +17,7 @@ function renderTblHeading(data){
   return table
 };
    
-function renderTblBtn(index, data){
+function renderTblBtn(obj, index, data){
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   const btnDel = document.createElement("button");
@@ -30,21 +30,14 @@ function renderTblBtn(index, data){
     console.log(e);
     data.splice(index, 1);
     renderTbl(data);
-    if(index === 0){
-      TBL.innerHTML = "";
-    } 
   });
   btnEdit.addEventListener('click', function(e){
-    console.log(e);
-    data.forEach(function (obj, index) {
-      data.splice(index, 0);
-      for(const [key, value] of Object.entries(obj)) {
-        if(key === "firstN" && key === "houseM" && key !== "houseS"){
-        data.push(value);
-        FORM[index]
-        };
-      };
-    });
+    FORM[1].value = obj.firstN;
+    FORM[2].value = obj.lastN;
+    FORM[3].value = obj.houseM;
+    FORM[4].value = obj.houseS;
+    data.splice(index, 1);
+    renderTbl(data);
   });
   return td;
 };
@@ -62,7 +55,7 @@ function renderTblBody(data){
         tr.appendChild(td);
       }; 
     };
-    const td = renderTblBtn(index, data);
+    const td = renderTblBtn(obj, index, data);
     tr.appendChild(td);
     tbody.appendChild(tr);
   });
@@ -70,10 +63,13 @@ function renderTblBody(data){
 };
   
 function renderTbl(data){
-  const table = renderTblHeading();
-  const tbody = renderTblBody(data);
-  table.appendChild(tbody);
-  TBL.appendChild(table);
+  TBL.innerHTML = "";
+  if(data.length !== 0) {
+    const table = renderTblHeading();
+    const tbody = renderTblBody(data);
+    table.appendChild(tbody);
+    TBL.appendChild(table);
+  };
 };
 
 export {renderTbl, renderTblHeading};
