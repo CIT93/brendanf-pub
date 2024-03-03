@@ -55,6 +55,7 @@ FORM.addEventListener('submit', function(e) {
   // if (firstName === '' && lastName === '') {
     // messages.push('Name is required');
   if (firstNameIsValid && lastNameIsValid) {
+    submitEl.textContent = '';
     const houseHoldMembers = parseInt(FORM.household.value);
     const houseSize = FORM.housesize.value;
     start(firstName, lastName, houseHoldMembers, houseSize);
