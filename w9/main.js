@@ -43,7 +43,7 @@ firstNameEl.addEventListener('blur', validateField);
 lastNameEl.addEventListener('blur', validateField);
 
 FORM.addEventListener('submit', function(e) {
-  // e.preventDefault();
+  e.preventDefault();
   const firstName = FORM.firstname.value;
   const lastName = FORM.lastname.value;
   // const houseHoldMembers = parseInt(FORM.household.value);
@@ -64,7 +64,7 @@ FORM.addEventListener('submit', function(e) {
     FORM.reset();
   } else {
     submitEl.textContent = "Form requires first name and last name";
-  }
+  };
   // if (messages.length > 0) {
   //   e.preventDefault();
   //   errorElement.innerText = messages.join(', ');
