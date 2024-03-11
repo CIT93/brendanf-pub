@@ -1,12 +1,12 @@
 import {FORM, TBL} from "./global.js";
 import {saveLS} from "./storage.js";
 
-const renderTblHeading = function(data){
+const renderTblHeading = data => {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
-  const headingTextArr = ["Name", "Household", "HouseSize", "Footprint", "Actions"];
-  headingTextArr.forEach(function(text){
+  const headingTextArr = ["Name", "Household", "HouseSize", "Footprint", "Actions"]; 
+  headingTextArr.forEach((text = 0) => {
     const th = document.createElement("th");
     th.textContent = text;
     tr.appendChild(th);
@@ -16,13 +16,13 @@ const renderTblHeading = function(data){
   return table
 };
 
-const onUpdate = function(index, data) {
+const onUpdate = (index = 0, data) => {
   data.splice(index, 1);
     saveLS(data);
     renderTbl(data);
 }
 
-const renderTblBtn = function(obj, index, data){
+const renderTblBtn = (obj, index = 0, data) => {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   const btnDel = document.createElement("button");
@@ -30,11 +30,11 @@ const renderTblBtn = function(obj, index, data){
   btnDel.textContent = "Del";
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
-  btnDel.addEventListener('click', function(e){
+  btnDel.addEventListener('click', (e = 0) => {
     // console.log(e);
     onUpdate(index, data);
   });
-  btnEdit.addEventListener('click', function(e){
+  btnEdit.addEventListener('click', (e = 0) => {
     FORM[1].value = obj.firstN;
     FORM[2].value = obj.lastN;
     FORM[3].value = obj.houseM;
@@ -44,9 +44,9 @@ const renderTblBtn = function(obj, index, data){
   return td;
 };
 
-const renderTblBody = function(data){
+const renderTblBody = data => {
   const tbody = document.createElement("tbody");
-  data.forEach(function(obj, index) {
+  data.forEach((obj, index = 0) => {
     // console.log(index);
     const tr = document.createElement("tr");
     for(const [key, value] of Object.entries(obj)) {
@@ -64,7 +64,7 @@ const renderTblBody = function(data){
   return tbody;
 };
   
-const renderTbl = function(data){
+const renderTbl = data => {
   TBL.innerHTML = "";
   if(data.length !== 0) {
     const table = renderTblHeading();

@@ -3,7 +3,11 @@ import {determineHouseHoldPts, determineHouseSizePts} from "./cfp.js";
 import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
 
-const start = function(firstName, lastName, houseHoldMembers, houseSize) {
+const start = (...arry) => {
+  const firstName = arry[0];
+  const lastName = arry[1];
+  const houseHoldMembers = arry[2];
+  const houseSize = arry[3];
   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
   const houseSizePTS = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePTS;
@@ -21,11 +25,10 @@ const start = function(firstName, lastName, houseHoldMembers, houseSize) {
 renderTbl(cfpData);
 
 // Function to validate a single field
-const validateField = function(event) {
+const validateField = (event = 0) => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
-
   if (field === '') {
       fieldError.textContent = `${fieldId} is required`;
       event.target.classList.add('invalid');
@@ -39,7 +42,7 @@ const validateField = function(event) {
 FNAME.addEventListener('blur', validateField);
 LNAME.addEventListener('blur', validateField);
 
-FORM.addEventListener('submit', function(e) {
+FORM.addEventListener('submit', (e = 0) => {
   e.preventDefault();
   if (FNAME.value !== '' && LNAME.value !== '') {
     SUBMIT.textContent = '';
@@ -52,18 +55,23 @@ FORM.addEventListener('submit', function(e) {
   };
 });
 
-const add2 = function(...a) { // parameter (default value if no parameter is passed through)
-  return 2 + a[3];
-};
 
-const result = add2(1,2,3,4);  // arguement
+// rest operator
+// const add2 = function(...a) { // parameter (default value if no parameter is passed through)
+//   return 2 + a[3];
+// };
 
-// spread arguement
+// const result = add2(1,2,3,4);  // arguement
+
+// arrow function
+// const add2 = a => 2 + a;
+
+// const result = add2(100);
 
 //IIFE
 
-const a = 3;
+// const a = 3;
 
-(function(a){
-  console.log("inside IIFE ");
-})(a);
+// (function(a){
+//   console.log("inside IIFE ");
+// })(a);
