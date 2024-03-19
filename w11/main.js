@@ -4,26 +4,26 @@ import {FORM, FNAME, LNAME, SUBMIT} from "./global.js";
 import {saveLS, cfpData} from "./storage.js";
 import {FP} from "./fp.js";
 
-const start = (firstName, lastName, houseHoldMembers, houseSize, foodChoice, foodConvenience) => {
-  const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
-  const houseSizePTS = determineHouseSizePts(houseSize);
-  const foodChoicePTS = foodChoicePoints(foodChoice);
-  const foodConveniencePTS = foodConveniencePoints(foodConvenience);
-  const total = houseHoldPTS + houseSizePTS + foodChoicePTS + foodConveniencePTS;
-  cfpData.push({
-    firstN: firstName,
-    lastN: lastName,
-    houseM: houseHoldMembers,
-    houseS: houseSize,
-    foodC: foodChoice,
-    foodCon: foodChoice,
-    houseMPTS: houseHoldPTS,
-    houseSPTS: houseSizePTS,
-    foodCPTS: foodChoicePTS,
-    foodConPTS: foodConveniencePTS,
-    cfpTotal: total,
-  });
-};
+// const start = (firstName, lastName, houseHoldMembers, houseSize, foodChoice, foodConvenience) => {
+//   const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
+//   const houseSizePTS = determineHouseSizePts(houseSize);
+//   const foodChoicePTS = foodChoicePoints(foodChoice);
+//   const foodConveniencePTS = foodConveniencePoints(foodConvenience);
+//   const total = houseHoldPTS + houseSizePTS + foodChoicePTS + foodConveniencePTS;
+//   cfpData.push({
+//     firstN: firstName,
+//     lastN: lastName,
+//     houseM: houseHoldMembers,
+//     houseS: houseSize,
+//     foodC: foodChoice,
+//     foodCon: foodChoice,
+//     houseMPTS: houseHoldPTS,
+//     houseSPTS: houseSizePTS,
+//     foodCPTS: foodChoicePTS,
+//     foodConPTS: foodConveniencePTS,
+//     cfpTotal: total,
+//   });
+// };
 
 renderTbl(cfpData);
 
@@ -32,6 +32,7 @@ const validateField = event => {
   const field = event.target.value;
   const fieldId = event.target.id;
   const fieldError = document.getElementById(`${fieldId}Error`);
+  console.log(event)
   if (field === '') {
       fieldError.textContent = `${fieldId} is required`;
       event.target.classList.add('invalid');

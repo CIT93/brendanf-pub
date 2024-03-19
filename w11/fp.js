@@ -13,7 +13,7 @@ class FP {
         this.total();
     };
     houseHoldPoints() {
-        console.log(this.houseMembers);
+        // console.log(this.houseMembers);
         if (this.houseMembers === 1) {
             this.houseHoldPoints = 14;
           } else if (this.houseMembers === 2) {
@@ -29,10 +29,10 @@ class FP {
           } else if (this.houseMembers > 6) {
             this.houseHoldPoints = 2;
           };
-          console.log(this.houseHoldPoints);
+          // console.log(this.houseHoldPoints);
         };
     houseSizePoints() {
-        console.log(this.houseSize);
+        // console.log(this.houseSize);
         if (this.houseSize === "large") {
             this.houseSizePoints = 10;
           } else if (this.houseSize === "medium") {
@@ -42,10 +42,10 @@ class FP {
           } else if (this.houseSize === "apartment") {
             this.houseSizePoints = 2;
           };
-          console.log(this.houseSizePoints);
+          // console.log(this.houseSizePoints);
     };
     foodChoicePoints() {
-      console.log(this.foodChoice);
+      // console.log(this.foodChoice);
       if (this.foodChoice === "dailydomesticmeat") {
           this.foodChoicePoints = 10;
         } else if (this.foodChoice === "somedomesticmeat") {
@@ -55,10 +55,10 @@ class FP {
         } else if (this.foodChoice === "veganorwildmeat") {
           this.foodChoicePoints = 2;
         };
-        console.log(this.foodChoicePoints);
+        // console.log(this.foodChoicePoints);
   };
   foodConveniencePoints() {
-      console.log(this.foodConvenience);
+      // console.log(this.foodConvenience);
       if (this.foodConvenience === "prepackagedfood") {
           this.foodConveniencePoints = 12;
         } else if (this.foodConvenience === "mixedprepackagedandfresh") {
@@ -66,11 +66,11 @@ class FP {
         } else if (this.foodConvenience === "fresh") {
           this.foodConveniencePoints = 2;
         };
-        console.log(this.foodConveniencePoints);
+        // console.log(this.foodConveniencePoints);
   };
     total() {
         this.total = this.houseHoldPoints + this.houseSizePoints + this.foodChoicePoints + this.foodConveniencePoints;
-        console.log(this.total);
+        // console.log(this.total);
     };
 };
 

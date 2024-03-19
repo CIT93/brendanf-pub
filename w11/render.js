@@ -35,8 +35,8 @@ const renderTblBtn = (obj, index, data) => {
     onUpdate(index, data);
   });
   btnEdit.addEventListener('click', e => {
-    FORM.firstN.value = obj.first;
-    FORM.lastN.value = obj.last;
+    FORM.firstname.value = obj.first;
+    FORM.lastname.value = obj.last;
     FORM.household.value = obj.houseMembers;
     FORM.housesize.value = obj.houseSize;
     FORM.foodchoice.value = obj.foodChoice;
